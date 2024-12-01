@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../layouts/head.ejs', { title: 'login'}) %>
+    <script type="module" src="/js/login.js"></script>
+  </head>
+  <body>
+    <section class="section form-section">
+      <div class="container">
+        <div class="form-card">
+          <!-- Card header -->
+          <div class="card-header">
+            <a href="/" class="logo">
+              <img
+                src="/images/logo-dark.svg"
+                alt="Inktale"
+                width="163"
+                height="40"
+                class="dark"
+              />
+              <img
+                src="/images/logo-light.svg"
+                alt="Inktale"
+                width="163"
+                height="40"
+                class="light"
+              />
+            </a>
+
+            <p class="body-large text-on-surface-variant">
+              Join the inktale community
+            </p>
+          </div>
+
+          <!-- Card content -->
+          <form class="form" data-form>
+            <div class="text-field-wrapper">
+              <label for="email" class="body-large label"> Email </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                class="body-large text-field"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="text-field-wrapper">
+              <label for="password" class="body-large label"> Password </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="body-large text-field"
+                minlength="8"
+                placeholder=""
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-fill" data-submit-btn>
+              <p class="label-large">Sign in</p>
+
+              <div class="state-layer"></div>
+            </button>
+          </form>
+
+          <!-- Card footer -->
+          <div class="card-footer">
+            <p class="label-large">New to This Blog?</p>
+            <a href="/register" class="label-large text-primary">
+              Create account
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    - #Snackbar
+    -->
+
+    <div class="snackbar-wrapper" data-snackbar-wrapper></div>
+  </body>
+</html>

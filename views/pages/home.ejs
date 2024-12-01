@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../layouts/head', { title: 'Home' }) %>
+
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- 
+      - #Header
+    -->
+  <%- include('../partials/header') %>
+
+    <main class="main">
+      <!--  
+        - #Home
+      -->
+      <article class="page home-page">
+        <div class="container">
+          <h2 class="headline-small page-title text-on-surface">
+            Latest Blogs
+          </h2>
+
+          <div class="blog-list">
+            <% if (latestBlogs.length) { %>
+              <% for (const blog of latestBlogs) {%>
+                <%- include('../partials/card', { blog }) %>
+              <%}%>
+            <% }%>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- 
+      - #Footer
+    -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
