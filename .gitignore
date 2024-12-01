@@ -113,4 +113,5 @@ public
 tmp/
 temp/
 
+# macOS
 .DS_Store
