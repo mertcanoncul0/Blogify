@@ -1,0 +1,33 @@
+<% 
+    const {
+        next,
+        prev,
+        totalPage,
+        currentPage
+    } = pagination
+%>
+
+<div class="pagination">
+    <a href="<%=prev%>" class="btn filled-tonal" <%=!prev ? 'disabled' : ''%>>
+        <span class="material-symbols-rounded leading-icon" aria-hidden="true">
+            chevron_left
+        </span>
+
+        <p class="label-large text">Previous</p>
+        <div class="state-layer"></div>
+    </a>
+
+    <p class="label-large text-on-surface">
+        <%=currentPage%> of <%=totalPage%>
+    </p>
+       <a href="<%=next%>" class="btn filled-tonal" <%=!next ? 'disabled' : ''%>>
+        <p class="label-large text">Next</p>
+
+        <span class="material-symbols-rounded leading-icon" aria-hidden="true">
+            chevron_right
+        </span>
+
+        <div class="state-layer"></div>
+    </a>
+
+</div>

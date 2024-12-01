@@ -30,6 +30,10 @@
               <%}%>
             <% }%>
           </div>
+
+          <% if (pagination.next || pagination.prev) { %>
+            <%- include('../partials/pagination', { pagination }) %>  
+          <%}%>
         </div>
       </article>
     </main>

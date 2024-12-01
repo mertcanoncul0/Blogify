@@ -12,8 +12,10 @@ const getReadingTime = require('../utils/get-reading-time')
  * @param {object} res - The response object.
  */
 const renderCreateBlog = (req, res) => {
+  const sessionUser = req.session.user || {}
+
   res.render('./pages/create-blog', {
-    sessionUser: req.session.user,
+    sessionUser,
     route: req.originalUrl,
   })
 }

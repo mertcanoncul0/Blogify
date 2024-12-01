@@ -2,13 +2,19 @@
 
 const express = require('express')
 require('dotenv').config()
+const { connectDB, disconnectDB } = require('./src/config/mongoose')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+
+/**
+ * Routes
+ */
 const register = require('./src/routes/register')
 const login = require('./src/routes/login')
 const home = require('./src/routes/home')
 const blog = require('./src/routes/blog')
-const { connectDB, disconnectDB } = require('./src/config/mongoose')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const logout = require('./src/routes/logout')
+const userAuth = require('./src/middlewares/user-auth')
 
 /**
  * Initial express
@@ -56,6 +62,8 @@ app.use(
   })
 )
 
+
+
 /**
  * Routes
  */
@@ -63,6 +71,12 @@ app.use('/', home)
 app.use('/register', register)
 app.use('/login', login)
 app.use('/create-blog', blog)
+app.use('/logout', logout)
+
+/**
+ * User authorization
+ */
+app.use(userAuth)
 
 /**
  * Start server
