@@ -14,6 +14,7 @@ const login = require('./src/routes/login')
 const home = require('./src/routes/home')
 const blog = require('./src/routes/blog')
 const logout = require('./src/routes/logout')
+const blogDetail = require('./src/routes/blog-detail')
 const userAuth = require('./src/middlewares/user-auth')
 
 /**
@@ -49,7 +50,6 @@ const store = new MongoStore({
 /**
  * Initial express session
  */
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -62,21 +62,24 @@ app.use(
   })
 )
 
-
-
 /**
- * Routes
+ * Public routes
  */
 app.use('/', home)
+app.use('/blogs', blogDetail)
 app.use('/register', register)
 app.use('/login', login)
-app.use('/create-blog', blog)
-app.use('/logout', logout)
 
 /**
  * User authorization
  */
 app.use(userAuth)
+
+/**
+ * Private routes
+ */
+app.use('/create-blog', blog)
+app.use('/logout', logout)
 
 /**
  * Start server

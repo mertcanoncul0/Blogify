@@ -50,7 +50,7 @@ const postCreateBlog = async (req, res) => {
   await user.save()
 
   // Redirect to the newly created blog post page
-  res.redirect(`/blog/${newBlog._id}`)
+  res.redirect(`/blogs/${newBlog._id}`)
 }
 
 module.exports = {
