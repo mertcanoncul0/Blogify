@@ -20,6 +20,7 @@ blog; const compressedBannerURL = bannerURL?.replace('upload/',
     - custom js link
     -->
   <script type="module" src="/js/reaction.js"></script>
+  <script type="module" src="/js/reading-list.js"></script>
   <script src="/js/script.js" defer></script>
 
   <!-- 
@@ -81,7 +82,7 @@ blog; const compressedBannerURL = bannerURL?.replace('upload/',
           <div class="blog-actions">
             <div class="action-item">
               <button class="icon-btn filled-tonal 
-              <%=userReactedBlogs?.includes(currentBlogId) ? 'active reaction-anim-add' : '' %>" data-reaction-btn>
+              <%=userReactedBlogs?.includes(currentBlogId) ? 'active' : '' %>" data-reaction-btn>
                 <span class="material-symbols-rounded icon" aria-hidden="true">
                   favorite
                 </span>
@@ -95,7 +96,7 @@ blog; const compressedBannerURL = bannerURL?.replace('upload/',
             </div>
 
             <div class="action-item">
-              <button class="icon-btn filled-tonal" data-reading-list-btn>
+              <button class="icon-btn filled-tonal <%=userReadingListedBlogs?.includes(currentBlogId) ? 'active' : '' %>" data-reading-list-btn>
                 <span class="material-symbols-rounded icon" aria-hidden="true">
                   bookmark
                 </span>
